@@ -4,6 +4,12 @@
   "main": "build/pdf.js",
   "types": "types/src/pdf.d.ts",
   "description": "Generic build of Mozilla's PDF.js library.",
+  "scripts": {
+    "build:demo": "rm -rf ./docs && webpack --config webpack.dev.js && webpack-dev-server --open --config webpack.dev.js",
+    "build:prod": "rm -rf ./dist && webpack --config webpack.prod.js",
+    "prepare": "npm run build:prod",
+    "lint": "node_modules/.bin/eslint src"
+  },
   "keywords": [
     "Mozilla",
     "pdf",
