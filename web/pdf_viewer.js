@@ -2669,7 +2669,8 @@ class PDFFindController {
     if (phraseSearch) {
       [isUnicode, query] = this.#convertToRegExpString(query, hasDiacritics);
     } else {
-      const match = query.match(/\S+/g);
+      //const match = query.match(/\S+/g);
+      const match = query.match(/[^|]+/g);
       if (match) {
         query = match.sort().reverse().map(q => {
           const [isUnicodePart, queryPart] = this.#convertToRegExpString(q, hasDiacritics);
